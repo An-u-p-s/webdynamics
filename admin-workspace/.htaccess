@@ -1,0 +1,89 @@
+# Do not remove this line or mod_rewrite rules and search engine friendly URLs will stop working
+# RewriteBase /
+
+# Default Page - This Page takes care of directing the URLs for other pages
+#  default.php : If Session exists for a user, direct the page to home.php
+#                       If Session does not exist, direct the page to index.php
+# DirectoryIndex news/latest
+DirectoryIndex default.php
+# Turn on the rewrite engine
+Options +FollowSymlinks
+RewriteEngine on
+#RewriteCond %{SERVER_PORT} 18085 
+#RewriteRule ^(.*)$ https://localhost:18085/$1 [R=301,L]
+# Direct Accessing to files are restricted, only they can be accessed from pages
+#RewriteCond %{HTTP_REFERER} !^http://(www\.)?localhost [NC] 
+#RewriteCond %{HTTP_REFERER} !^http://www.anups.in/ [NC] 
+#RewriteRule \.(gif|jpg|png|mp4)$ - [F]
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule img-jstree-32px images/api/jstree/32px.png
+RewriteRule img-jstree-throbber images/api/jstree/throbber.gif
+# Javascript
+RewriteRule js-api-jquery                      js/api/jquery.min.js
+RewriteRule js-api-bootstrap                   js/api/bootstrap.min.js
+RewriteRule js-api-angular                     js/api/angular.min.js
+RewriteRule js-api-angularMap                  js/api/angular.min.js.map
+
+RewriteRule js-templates-defheader js/pages/templates/default_header.js
+
+# Styles
+RewriteRule styles-api-bootstrap            styles/api/bootstrap.min.css
+RewriteRule styles-api-font-awesome         styles/api/font-awesome.min.css
+RewriteRule styles-api-font-faces           styles/api/font-faces.css
+RewriteRule styles-api-jquery-ui            http://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css
+
+RewriteRule styles-templates-defheader      styles/pages/templates/default_header.css
+
+
+#Fonts
+RewriteRule fonts-MRF_Lemonberry_Sans   fonts/MRF_Lemonberry_Sans.otf
+RewriteRule fonts-Boogaloo-Regular      fonts/Boogaloo-Regular.otf
+RewriteRule fonts-BRUSHSCI              fonts/BRUSHSCI.TTF
+RewriteRule fontawesome-webfont-woff2   fonts/fontawesome-webfont.woff2?v=4.4.0
+RewriteRule fontawesome-webfont-woff    fonts/fontawesome-webfont.woff?v=4.4.0
+RewriteRule fontawesome-webfont-ttf     fonts/fontawesome-webfont.ttf?v=4.4.0
+RewriteRule fontawesome-webfont-eot     fonts/fontawesome-webfont.eot?v=4.4.0
+RewriteRule fontawesome-webfont-svg     fonts/fontawesome-webfont.svg?v=4.4.0
+RewriteRule fonts-glyphicons-eot        fonts/glyphicons-halflings-regular.eot
+RewriteRule fonts-glyphicons-woff2      fonts/glyphicons-halflings-regular.woff2
+RewriteRule fonts-glyphicons-woff       fonts/glyphicons-halflings-regular.woff
+RewriteRule fonts-glyphicons-ttf        fonts/glyphicons-halflings-regular.ttf
+RewriteRule fonts-glyphicons-svg        fonts/glyphicons-halflings-regular.svg
+RewriteRule fonts-map-eot               fonts/map-icons.eot
+RewriteRule fonts-map-svg               fonts/map-icons.svg
+RewriteRule fonts-map-ttf               fonts/map-icons.ttf
+RewriteRule fonts-map-woff              fonts/map-icons.woff
+
+
+
+#RewriteRule profile/([^/]+)$ h.php?userName=$1 [L]
+RewriteRule ^([^/]+)/profile/([^/]+)$ emp_profile.php?type=$1&userName=$2 [L]
+RewriteRule ^([^/]+)/profile/([^/]+)$ emp_profile.php?type=$1&userName=$2 [L]
+RewriteRule employeer/news/([^/]+)$ emp_news.php?userName=$1 [L]
+
+
+
+
+
+
+# PHP Files
+RewriteRule statistics php/dac/dataInsert.php
+RewriteRule email_send php/util/util.email.php
+RewriteRule fbk_data   php/dac/fbk_data.php
+
+# Pages
+#RewriteRule news blog.php [L] 
+RewriteRule news/([^/]+)$ blog.php?par1=$1 [L] 
+RewriteRule admin admin.php [L]
+# RewriteRule president2016 voting.php [L]
+RewriteRule president2016/([^/]+)$ voting.php?vote=$1 [L]
+#RewriteRule ^([^/]+)$ voting.php?par1=$1 [L]
+#RewriteRule ^([^/]+)/([^/]+)$ voting.php?par1=$1&par2=$2 [L]
+#RewriteRule ^([^/]+)$ index.php?par1=$1 [L]
+#RewriteRule ^([^/]+)/([^/]+)$ index.php?par1=$1&par2=$2 [L]
+#RewriteRule ^([^/]+)/([^/]+)/([^/]+)$ index.php?par1=$1&par2=$2&par3=$3 [L]
+#RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)$ index.php?par1=$1&par2=$2&par3=$3&par4=$4 [L]

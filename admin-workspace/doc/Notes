@@ -1,0 +1,23 @@
+=============================================================================
+THINGS TO BE ADDED
+=============================================================================
+1) IF A COLUMN AS AUTO_INCREMENT, IT DOESN'T INVOLVE IN INSERT QUERY STATEMENT.    -- DONE
+2) IF A COLUMN AS UNIQUE CONSTRAINT, VALIDATION CHECK SHOULD BE ADDED.
+3) IF NO INTEGER EXIST IN A TABLE, THERE SHOULD NOT BE ANY IF-ELSE CONDITION.
+        a) INDIVIDUAL-TABLES                                                     -- DONE
+        b) FOREIGN TABLES                                                        -- DONE
+4) ALLOWANCE OF '(QUOTE), "(DOUBLE-QUOTE) INTO DATABASE ROW.
+5) IF DATABASE CONNECTION FAILS, RETURN A MESSAGE TO INDEX.PHP
+
+
+6) INSERT AND SELECT STATEMENTS::
+    a) Before Sending Single-Quote and Double-Quote as Column values,
+
+7) Indiviual Tables generate DAL 
+      
+==================
+OBSERVED
+==================
+1. BIT DATATYPE - It should not append with '' in the Query
+2. $input and $output should be placed in Select Query instead of $inputArray and $outputArray.
+3. $input $Key=$val should be separated by AND not by ,
